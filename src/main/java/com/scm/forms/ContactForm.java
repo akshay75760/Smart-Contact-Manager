@@ -6,11 +6,13 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.ToString;
 
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
+@ToString
 public class ContactForm {
     private String name;
 
@@ -22,13 +24,15 @@ public class ContactForm {
 
     private String description;
 
-    private String favorite;
+    private boolean favorite;
 
     private String websiteLink;
 
     private String linkedinLink;
 
     private MultipartFile profileImage;
+
+    
 
 
 }
