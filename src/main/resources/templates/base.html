@@ -25,7 +25,6 @@ lang="en" th:fragment ="parent(content,title,script)" xmlns:th="http://www.thyme
 
 
 
-
     <!-- User is not Logged in : navbar -->
     <div th:unless="${loggedInUser}">
         <div data-th-replace=" navbar :: navbar "></div>

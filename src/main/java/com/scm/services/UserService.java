@@ -12,7 +12,4 @@ public interface UserService {
     boolean isExisByEmail(String email);
     User getUserByEmail(String email);
     List<User> getAllUsers();
-
-
-    
 } 

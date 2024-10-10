@@ -37,6 +37,5 @@ public class Helper {
             return authentication.getName();
         }
 
-
     }
 }

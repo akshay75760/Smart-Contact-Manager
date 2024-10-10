@@ -64,7 +64,6 @@ public class OAuthAuthenicationSuccessHandler implements AuthenticationSuccessHa
             user.setProviderUserId(oauthUser.getName());
             user.setProviders(Providers.GOOGLE);
             user.setAbout("This account is created using google.");
-
         }
 
         else if(authorizedClientRegistrationId.equalsIgnoreCase("github")){

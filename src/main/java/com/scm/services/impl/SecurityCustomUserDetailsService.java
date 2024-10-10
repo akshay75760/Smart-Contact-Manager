@@ -19,5 +19,4 @@ public class SecurityCustomUserDetailsService implements UserDetailsService {
         // Apne User ko load krna h
         return userRepo.findByEmail(username).orElseThrow(()-> new UsernameNotFoundException("User Not Found"+username));
     }
-
 }

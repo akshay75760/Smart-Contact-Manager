@@ -35,6 +35,6 @@ public class RootController {
         System.out.println(user.getName());
         System.out.println(user.getEmail());
         model.addAttribute("loggedInUser", user);
-
+        
     }
 }

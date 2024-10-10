@@ -39,6 +39,7 @@ public class Contact {
     private String linkedinLink;
     private String websiteLink;
     // private String websiteLink;
+    
 
     @ManyToOne
     @JsonIgnore

@@ -23,7 +23,6 @@ public class UserController {
     @Autowired
     private UserService userService;
 
-
     // user dashboard page
     @GetMapping("/dashboard")
     public String userDashboard() {

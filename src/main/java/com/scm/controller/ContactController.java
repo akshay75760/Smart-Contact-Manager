@@ -41,11 +41,16 @@ public class ContactController {
         // Form -->Contact
 
         Contact cantact = new Contact();
-        
+
         cantact.setName(contactForm.getName());
         cantact.setEmail(contactForm.getEmail());
         cantact.setPhoneNumber(contactForm.getPhoneNumber());
         cantact.setFavorite(contactForm.isFavorite());
+        cantact.setAddress(contactForm.getAddress());
+        cantact.setDescription(contactForm.getDescription());
+        cantact.setUser();
+        cantact.setWebsiteLink(contactForm.getWebsiteLink());
+        cantact.setLinkedinLink(contactForm.getLinkedinLink());
 
 
         contactService.save(cantact);

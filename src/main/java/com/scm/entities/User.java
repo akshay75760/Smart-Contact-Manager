@@ -68,6 +68,7 @@ public class User implements UserDetails {
         return roles; 
     }
 
+    
     @Override
     public String getUsername() {
         return this.email;

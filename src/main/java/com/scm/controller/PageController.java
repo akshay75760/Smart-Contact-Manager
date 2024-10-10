@@ -120,6 +120,7 @@ public class PageController {
 
         // messsage="Resgsitration Succesfull"
         // Add the message
+        
     
         Message message=Message.builder().content("Registration Succesfull").type(MessageType.green).build();
         session.setAttribute("message", message);
