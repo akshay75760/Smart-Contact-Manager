@@ -15,6 +15,7 @@
             <div class="col-span-3"></div>
             <div class="col-span-12 md:col-span-6">
                 <div class="card block  p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
+                   <div data-th-replace="message::messagebox"></div>
                     <h1 class="text-xl font-semibold">Add New Contact</h1>
                     <p class="text-gray-400">This contact will be stored on cloud, you can direct email
                         this client from scm...
@@ -27,20 +28,26 @@
                         <!-- Name Form -->
                      <div class=" mb-3">
                         <label for="input-group-1" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Contact Name</label>
-                        <div class="relative mb-6">
+                        <div class="relative mb-2">
                         <div class="absolute inset-y-0 start-0 flex items-center ps-3.5 pointer-events-none">
                             <i class="fa-solid fa-user h-4 w-4"></i>
                         </div>
                         <input data-th-field="*{name}"
                         type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Name" />
                         </div>
+                        <p
+                        class="text-red-500"
+                        data-th-if="${#fields.hasErrors('name')}"
+                        data-th-errors="*{name}"
+                        >Invalid Name
+                        </p>
                      </div>
 
                      <!-- Contact email Form -->
                      <div class=" mb-3">
                         <label for="input-group-1" 
                         class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Email</label>
-                        <div class="relative mb-6">
+                        <div class="relative mb-2">
                         <div class="absolute inset-y-0 start-0 flex items-center ps-3.5 pointer-events-none">
                             <i class="fa-solid fa-envelope h-4 w-4"></i>
                         </div>
@@ -52,13 +59,18 @@
                             dark:focus:ring-blue-500 dark:focus:border-blue-500" 
                             placeholder="example@email.com" />
                         </div>
+                        <p
+                        class="text-red-500"
+                        data-th-if="${#fields.hasErrors('email')}"
+                        data-th-errors="*{email}"
+                        ></p>
                      </div>
 
                      <!-- Phone Number -->
                      <div class=" mb-3">
                         <label for="input-group-1" 
                         class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Contact Number</label>
-                        <div class="relative mb-6">
+                        <div class="relative mb-2">
                         <div class="absolute inset-y-0 start-0 flex items-center ps-3.5 pointer-events-none">
                             <i class="fa-solid fa-phone h-4 w-4"></i>
                         </div>
@@ -69,6 +81,12 @@
                           dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white 
                             dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="9899898898"/>
                         </div>
+                        <p
+                        class="text-red-500"
+                        data-th-if="${#fields.hasErrors('phoneNumber')}"
+                        data-th-errors="*{phoneNumber}"
+                        ></p>
+
                      </div>
 
                      <!-- Address -->
@@ -84,6 +102,11 @@
                        dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500
                        dark:focus:border-blue-500" placeholder="Address of the contact">
                        </textarea>
+                       <p
+                       class="text-red-500"
+                       data-th-if="${#fields.hasErrors('address')}"
+                       data-th-errors="*{address}"
+                       ></p>
                      </div>
                     
 
