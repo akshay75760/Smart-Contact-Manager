@@ -17,6 +17,7 @@ import com.scm.helper.Message;
 import com.scm.helper.MessageType;
 import com.scm.services.ContactService;
 import com.scm.services.UserService;
+import com.scm.services.imageService;
 
 import jakarta.servlet.http.HttpSession;
 import jakarta.validation.Valid;
@@ -35,6 +36,11 @@ public class ContactController {
     private ContactService contactService;
     @Autowired
     private UserService userService;
+
+    @Autowired
+    private imageService imageservice;
+
+    private Logger logger =org.slf4j.LoggerFactory.getLogger(ContactController.class);
 
     @RequestMapping("/add")
     // Add Contact page
@@ -60,7 +66,7 @@ public class ContactController {
         // }
 
         if (result.hasErrors()) {
-            // result.getAllErrors().forEach(error -> logger.info(error.toString()));
+            result.getAllErrors().forEach(error -> logger.info(error.toString()));
 
             session.setAttribute("message", Message.builder()
                     .content("Please correct the following errors")
@@ -79,6 +85,9 @@ public class ContactController {
         Contact cantact = new Contact();
 
         // Process the contact picture
+        logger.info("File Imformation:{}", contactForm.getContactImage().getOriginalFilename());
+       String fileURL = imageservice.uploadImage(contactForm.getContactImage());
+
 
         cantact.setName(contactForm.getName());
         cantact.setEmail(contactForm.getEmail());
@@ -89,7 +98,7 @@ public class ContactController {
         cantact.setUser(user);
         cantact.setWebsiteLink(contactForm.getWebsiteLink());
         cantact.setLinkedinLink(contactForm.getLinkedinLink());
-
+        cantact.setPicture(fileURL); 
 
 
         // Set contact picture url
@@ -97,7 +106,7 @@ public class ContactController {
 
         // Set message to be displaed on the view
 
-        contactService.save(cantact);
+        // contactService.save(cantact);
 
         
         System.out.println(contactForm);

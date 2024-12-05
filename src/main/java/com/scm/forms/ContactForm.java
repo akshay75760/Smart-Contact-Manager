@@ -40,6 +40,9 @@ public class ContactForm {
 
     private String linkedinLink;
 
+    // Annoatation create karnee
+    //size
+    // resolution
     private MultipartFile contactImage;
     
 
