@@ -1,5 +1,7 @@
 package com.scm.controller;
 
+import java.util.*;
+
 import org.slf4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -82,12 +84,16 @@ public class ContactController {
         User user =userService.getUserByEmail(username);
 
 
-        Contact cantact = new Contact();
+        
 
         // Process the contact picture
         logger.info("File Imformation:{}", contactForm.getContactImage().getOriginalFilename());
-       String fileURL = imageservice.uploadImage(contactForm.getContactImage());
 
+        String filename= UUID.randomUUID().toString();
+        
+       String fileURL = imageservice.uploadImage(contactForm.getContactImage(), filename);
+
+        Contact cantact = new Contact();
 
         cantact.setName(contactForm.getName());
         cantact.setEmail(contactForm.getEmail());
@@ -99,6 +105,7 @@ public class ContactController {
         cantact.setWebsiteLink(contactForm.getWebsiteLink());
         cantact.setLinkedinLink(contactForm.getLinkedinLink());
         cantact.setPicture(fileURL); 
+        cantact.setCloudinaryImagePublicId(filename);
 
 
         // Set contact picture url
@@ -106,7 +113,7 @@ public class ContactController {
 
         // Set message to be displaed on the view
 
-        // contactService.save(cantact);
+        contactService.save(cantact);
 
         
         System.out.println(contactForm);

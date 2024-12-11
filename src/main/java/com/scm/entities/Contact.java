@@ -40,6 +40,8 @@ public class Contact {
     private String websiteLink;
     // private String websiteLink;
     
+    private String cloudinaryImagePublicId;
+    
 
     @ManyToOne
     @JsonIgnore
